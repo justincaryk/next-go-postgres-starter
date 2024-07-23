@@ -18,14 +18,21 @@ The project architecture is cribbed from [this dev.to article](https://dev.to/fr
 
 #### Getting started
 
-1. Install frontend dependencies:
+1. Install frontend dependencies (from root):
 
 ```bash
 cd frontend
 yarn
 ```
 
-2. Profiles have been set up for Nextjs and Go. The db is always configured to run. Choose which best suits your development requirements:
+2. Install go packages (from root):
+
+```bash
+cd backend
+go mod tidy
+```
+
+3. Profiles have been set up for Nextjs and Go. The db is always configured to run. Choose which best suits your development requirements:
 
 * To spin up nextapp and db only: `docker compose --profile nextapp up`
 * To spin up goapp and db only: `docker compose --profile goapp up`
@@ -33,7 +40,7 @@ yarn
 
 If you want to run these in a detached state, you can append the `-d` flag to the end of the commands above, which will free up the terminal window.
 
-3. Spin up your working directory in a separate terminal
+4. Spin up your working directory in a separate terminal
 
 * For frontend dev: `cd frontend && yarn dev`
 * For backend dev: **TODO (see reflex todo below)**
