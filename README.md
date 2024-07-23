@@ -32,7 +32,7 @@ cd backend
 go mod tidy
 ```
 
-3. Profiles have been set up for Nextjs and Go. The db is always configured to run. Choose which best suits your development requirements:
+3. Docker Profiles have been set up for the frontend and backend directories. The db is always configured to run. Choose which best suits your development requirements:
 
 - To spin up nextapp and db only: `docker compose --profile nextapp up`
 - To spin up goapp and db only: `docker compose --profile goapp up`
