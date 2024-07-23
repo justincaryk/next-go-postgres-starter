@@ -1,7 +1,22 @@
 services:
+  nextapp:
+    container_name: nextapp
+    image: nextapp:1.0.0
+    build:
+      context: ./frontend
+      dockerfile: next.dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - goapp
+    profiles:
+      - nextapp
+
   goapp:
     container_name: goapp
-    image: justincaryk/goapp:1.0.0
+    image: francescoxx/goapp:1.0.0
     build:
       context: ./backend
       dockerfile: go.dockerfile
@@ -11,6 +26,9 @@ services:
       - '8000:8000'
     depends_on:
       - db
+    profiles:
+      - goapp
+
   db:
     container_name: db
     image: postgres:13
