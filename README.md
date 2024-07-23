@@ -1,13 +1,13 @@
 ## Go + Postgres + Nextjs Starter
 
-#### Requirements
+### Requirements
 
 [Install Docker](https://docs.docker.com/engine/install/)
 [Install go](https://go.dev/doc/install) \*This app requires v1.22.4
 [Install node](https://nodejs.org/en/download/prebuilt-installer/current)
 [Install node version manager (nvm)](https://github.com/nvm-sh/nvm) *Optional
 
-#### Documentation
+### Documentation
 
 Go Docs:
 [Main Docs](https://go.dev/doc/)
@@ -15,7 +15,7 @@ Go Docs:
 
 The project architecture is cribbed from [this dev.to article](https://dev.to/francescoxx/go-typescript-full-stack-web-app-with-nextjs-postgresql-and-docker-42ln).
 
-#### Getting started
+### Getting started
 
 1. Install frontend dependencies (from root):
 
@@ -44,14 +44,14 @@ If you want to run these in a detached state, you can append the `-d` flag to th
 * For frontend dev: `cd frontend && yarn dev`
 * For backend dev: **TODO (see reflex todo below)**
 
-#### Testing
+### Testing
 
 ```bash
 cd backend && go test -v
 cd frontend && yarn test
 ```
 
-#### TODO
+### TODO
 
 1. Install reflex for go (watch file):
 
