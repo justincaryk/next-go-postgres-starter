@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -18,7 +19,14 @@ type User struct {
 }
 
 func main() {
-	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
+	config := os.Getenv("DATABASE_URL")
+
+	// only resolves true when running `air` cmd
+	if os.Getenv("GO_ENV") == "dev" {
+		config += "user=postgres password=postgres dbname=postgres sslmode=disable"
+	}
+
+	db, err := sql.Open("postgres", config)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -150,6 +158,7 @@ func updateUser(db *sql.DB) http.HandlerFunc {
 			log.Fatal(err)
 		}
 
+		fmt.Print("Hello. ")
 		// return updates user
 		json.NewEncoder(w).Encode(updatedUser)
 	}

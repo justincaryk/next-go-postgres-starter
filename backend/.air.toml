@@ -1,0 +1,22 @@
+
+root = "."
+tmp_dir = "tmp"
+[build]
+  cmd = "go build -o ./tmp/api ."
+  bin = "tmp/main"
+  full_bin = "GO_ENV=dev APP_PORT=8000 tmp/api"
+  exclude_dir = ["tmp", "vendor", "node_modules", "public", "storage"]
+  include_ext = ["go", "tpl", "tmpl", "html"]
+  exclude_ext = ["go"]
+  exclude_file = ["*_test.go"]
+  follow_symlink = true
+  dir_interval = 300
+  file_interval = 100
+[log]
+  time = false
+  color = true
+  log = "air.log"
+[shut]
+  delay = 300
+[hot]
+  restart_interval = 3000

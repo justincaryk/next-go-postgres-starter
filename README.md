@@ -4,6 +4,7 @@
 
 - [Install Docker](https://docs.docker.com/engine/install/)
 - [Install go](https://go.dev/doc/install) \*This app requires v1.22.4
+- [Install air](https://github.com/air-verse/air)
 - [Install node](https://nodejs.org/en/download/prebuilt-installer/current)
 - [Install node version manager (nvm)](https://github.com/nvm-sh/nvm) \*Optional
 
@@ -29,6 +30,7 @@ yarn
 
 ```bash
 cd backend
+go install github.com/air-verse/air@latest
 go mod tidy
 ```
 
@@ -43,7 +45,7 @@ If you want to run these in a detached state, you can append the `-d` flag to th
 4. Spin up your working directory in a separate terminal
 
 - For frontend dev: `cd frontend && yarn dev`
-- For backend dev: **TODO (see reflex todo below)**
+- For backend dev: `cd backend && air`
 
 ### Testing
 
@@ -54,15 +56,4 @@ cd frontend && yarn test
 
 ### TODO
 
-1. Install reflex for go (watch file):
-
-Run `go install github.com/cespare/reflex@latest`
-
-Create a `reflex.conf` file:
-
-```
-# Watch .go files and run docker-compose up when changes are detected
--r '\.go$' docker-compose up --build
-```
-
-Run `reflex -c backend/reflex.conf`
+1. go: env variables 
